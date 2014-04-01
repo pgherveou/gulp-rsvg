@@ -50,6 +50,7 @@ function gulprsvg() {
             done();
         } else {
             var svg = new Rsvg(file.contents);
+            file = file.clone();
             file.path = gutil.replaceExtension(file.path, '.' + options.format);
             file.contents = new Buffer(svg.render({
                 format: options.format,
